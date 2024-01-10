@@ -1,37 +1,36 @@
-class Borad
-    def initialize
-        
+require_relative 'players'
+class Board < Players
+    def initialize(board)
+    @board = board
     end
-end
+    def board_Game
+        
+        show_board
+        
+        while true
 
+            mv_player1
+            @board[@integer] = @player_1
+            show_board
+
+            mv_player2
+            @board[@integer] = @player_2
+            show_board
+                
+        end
+    end
+    def show_board
+        @board.values.each_slice(3) do |row|
+            puts row.join(" ")
+        end
+    end
+
+end
 board = {
     1 => "*", 2 => "*", 3 => "*",
     4 => "*", 5 => "*", 6 => "*",
     7 => "*", 8 => "*", 9 => "*"
 }
 
-while true
-
-puts "Ingrese posicion player 1:"
-input = gets.chomp
-integer = Integer(input)
-player_1 = "X"
-
-board[integer] = player_1
-
-board.values.each_slice(3) do |row|
-    puts row.join(" ")
-end
-
-    puts "Ingrese posicion player 2:"
-    input = gets.chomp
-    integer = Integer(input)
-    player_2 = "O"
-    
-board[integer] = player_2
-    
-    board.values.each_slice(3) do |row|
-        puts row.join(" ")
-    end
-    
-end
+Juego1 = Board.new(board)
+Juego1.board_Game
