@@ -1,8 +1,10 @@
 require_relative 'players'
 class Board < Players
+    attr_accessor :board
     def initialize(board)
     @board = board
     end
+
     def board_Game
         
         show_board
@@ -10,10 +12,12 @@ class Board < Players
         while true
 
             mv_player1
+            
             @board[@integer] = @player_1
             show_board
 
             mv_player2
+           
             @board[@integer] = @player_2
             show_board
                 
@@ -26,11 +30,3 @@ class Board < Players
     end
 
 end
-board = {
-    1 => "*", 2 => "*", 3 => "*",
-    4 => "*", 5 => "*", 6 => "*",
-    7 => "*", 8 => "*", 9 => "*"
-}
-
-Juego1 = Board.new(board)
-Juego1.board_Game
