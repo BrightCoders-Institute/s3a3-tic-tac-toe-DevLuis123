@@ -28,19 +28,19 @@ class GameLogic
 
   def show_board
     @board.values.each_slice(3) do |row|
-      puts row.join(" ")
+      puts row.join(' ')
     end
   end
 
   def mv_player1
-    puts "Turno del jugador 1. Ingrese una posición (1-9):"
+    puts 'Turno del jugador 1. Ingrese una posición (1-9):'
     @players.mv_player1
     update_board(@players.integer, @players.player_1)
     show_board
   end
 
   def mv_player2
-    puts "Turno del jugador 2. Ingrese una posición (1-9):"
+    puts 'Turno del jugador 2. Ingrese una posición (1-9):'
     @players.mv_player2
     update_board(@players.integer, @players.player_2)
     show_board
@@ -76,7 +76,7 @@ class GameLogic
     if winner
       puts "¡#{winner} es el ganador!"
     else
-      puts "El juego ha terminado en empate."
+      puts 'El juego ha terminado en empate.'
     end
   end
 end
